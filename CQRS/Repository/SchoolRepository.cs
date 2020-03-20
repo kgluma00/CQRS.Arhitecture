@@ -25,5 +25,12 @@ namespace CQRS.Repository
         {
             return await _context.Schools.Where(i => i.Id == schoolId).FirstOrDefaultAsync();
         }
+
+        public async Task<School> SaveSchool(School entity)
+        {
+            _context.Schools.Add(entity);
+            await _context.SaveChangesAsync();
+            return entity;
+        }
     }
 }

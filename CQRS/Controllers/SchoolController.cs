@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CQRS.Commands;
 using CQRS.Entities;
 using CQRS.Queries;
 using MediatR;
@@ -36,6 +37,14 @@ namespace CQRS.Controllers
         {
             var query = new GetSchoolByIdQuery(schoolId);
             var response = await _mediator.Send(query);
+
+            return Ok(response);
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddSchool(School model)
+        {
+            var command = new AddSchoolCommand(model);
+            var response = await _mediator.Send(command);
 
             return Ok(response);
         }

@@ -10,5 +10,6 @@ namespace CQRS.Repository
     {
         Task<List<School>> GetAllSchools();
         Task<School> GetSchoolById(int schoolId);
+        Task<School> SaveSchool(School entity);
     }
 }
