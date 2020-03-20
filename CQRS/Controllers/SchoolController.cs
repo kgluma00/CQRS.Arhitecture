@@ -41,9 +41,9 @@ namespace CQRS.Controllers
             return Ok(response);
         }
         [HttpPost]
-        public async Task<IActionResult> AddSchool(School model)
+        public async Task<IActionResult> SaveSchool(School model)
         {
-            var command = new AddSchoolCommand(model);
+            var command = new SaveSchoolCommand(model);
             var response = await _mediator.Send(command);
 
             return Ok(response);

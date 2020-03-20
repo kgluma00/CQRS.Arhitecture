@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace CQRS.Handler.CommandQuery
 {
-    public class AddSchoolHandler : IRequestHandler<AddSchoolCommand, School>
+    public class SaveSchoolHandler : IRequestHandler<SaveSchoolCommand, School>
     {
         public ISchoolRepository _repository { get; }
-        public AddSchoolHandler(ISchoolRepository repository)
+        public SaveSchoolHandler(ISchoolRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task<School> Handle(AddSchoolCommand request, CancellationToken cancellationToken)
+        public async Task<School> Handle(SaveSchoolCommand request, CancellationToken cancellationToken)
         {
             var school = await _repository.SaveSchool(request.School);
             return school;

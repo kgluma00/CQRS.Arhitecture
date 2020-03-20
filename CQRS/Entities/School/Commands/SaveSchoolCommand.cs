@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CQRS.Commands
 {
-    public class AddSchoolCommand : IRequest<School>
+    public class SaveSchoolCommand : IRequest<School>
     {
-        public AddSchoolCommand(School school)
+        public SaveSchoolCommand(School school)
         {
             School = school;
         }
